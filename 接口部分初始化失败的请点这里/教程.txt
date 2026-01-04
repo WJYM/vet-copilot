@@ -1,4 +1,4 @@
-请看解决办法：https://gitee.com/ktianc/kinit/issues/I94B9F
+请看解决办法：https://gitee.com/ktianc/vet-copilot/issues/I94B9F
 
 
 刚开始看这个项目，第一次初始化建议将dev 和 pro 配置都添加上去，并配置一摸一样的数据库，然后再慢慢了解

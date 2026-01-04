@@ -1,6 +1,6 @@
 <div align="center">
     <p align="center">
-        <img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/logo.png" height="150" alt="logo"/>
+        <img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/logo.png" height="150" alt="logo"/>
     </p>
 </div>
 
@@ -9,7 +9,7 @@
 
 ## [关于]
 
-<div align="center"><h3 align="center">Kinit 是一套开箱即用的中后台解决方案，可以作为新项目的启动模版！</h3></div>
+<div align="center"><h3 align="center">Vet-Copilot 是一套开箱即用的中后台解决方案，可以作为新项目的启动模版！</h3></div>
 <div align="center"><h3 align="center">前后端分离架构，开箱即用，紧随前沿技术！</h3></div>
 
 <div align="center"><h3 align="center">高性能，高效率，高颜值，易扩展</h3></div>
@@ -18,7 +18,7 @@
 
 ## 介绍
 
-Kinit 是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。
+Vet-Copilot 是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。
 
 - 后端采用现代、快速（高性能） [FastAPI](https://fastapi.tiangolo.com/zh/) 异步框架 + 自动生成交互式API文档 + （强制类型约束）[Pydantic](https://docs.pydantic.dev/1.10/) + （高效率）[SQLAlchemy 2.0](https://docs.sqlalchemy.org/en/20/index.html)；
 - PC端采用 [vue-element-plus-admin](https://gitee.com/kailong110120130/vue-element-plus-admin) 、[Vue3](https://cn.vuejs.org/guide/introduction.html)、[Element Plus](https://element-plus.gitee.io/zh-CN/guide/design.html)、[TypeScript](https://www.tslang.cn/)等主流技术开发；
@@ -53,7 +53,7 @@ Kinit 是一套全部开源的快速开发平台，毫无保留给个人及企�
 
 <div align="center">
     <p align="center">
-        <img src="https://ktianc.oss-cn-beijing.aliyuncs.com/kinit/public/images/WechatIMG285.jpg" height="500" alt="logo"/>
+        <img src="https://ktianc.oss-cn-beijing.aliyuncs.com/vet-copilot/public/images/WechatIMG285.jpg" height="500" alt="logo"/>
     </p>
 </div>
 
@@ -66,16 +66,16 @@ Kinit 是一套全部开源的快速开发平台，毫无保留给个人及企�
 
 ## 在线体验
 
-PC端演示地址：https://kinit.ktianc.top
+PC端演示地址：https://vet-copilot.ktianc.top
 
 微信小程序端演示：
 
-- 搜索：kinit
+- 搜索：vet-copilot
 - 扫码：
 
 <div align="center">
     <p align="center">
-        <img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/gh_5566dcf85bf0_860.jpg" height="150" alt="logo"/>
+        <img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/gh_5566dcf85bf0_860.jpg" height="150" alt="logo"/>
     </p>
 </div>
 
@@ -83,7 +83,7 @@ PC端演示地址：https://kinit.ktianc.top
 管理员账户：
 
 - 账号：15020221010
-- 密码：kinit2022
+- 密码：vet-copilot2022
 
 测试账户：
 
@@ -147,9 +147,9 @@ B站 视频演示：https://www.bilibili.com/video/BV19e411a7zP/
 
 ## 源码地址
 
-gitee地址(主推)：https://gitee.com/ktianc/kinit
+gitee地址(主推)：https://gitee.com/ktianc/vet-copilot
 
-github地址：https://github.com/vvandk/kinit
+github地址：https://github.com/vvandk/vet-copilot
 
 ## PC端内置功能
 
@@ -251,7 +251,7 @@ github地址：https://github.com/vvandk/kinit
 获取代码
 
 ```
-git clone https://gitee.com/ktianc/kinit.git
+git clone https://gitee.com/ktianc/vet-copilot.git
 ```
 
 ### 准备工作
@@ -273,7 +273,7 @@ Redis (推荐使用最新稳定版)
 1. 安装依赖
 
    ```
-   cd kinit-api
+   cd vet-copilot-api
    
    pip3 install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
    ```
@@ -343,20 +343,20 @@ Redis (推荐使用最新稳定版)
    [dev]
    # 开发环境
    version_locations = %(here)s/alembic/versions_dev
-   sqlalchemy.url = mysql+pymysql://root:123456@127.0.0.1/kinit
+   sqlalchemy.url = mysql+pymysql://root:123456@127.0.0.1/vet-copilot
    
    
    [pro]
    # 生产环境
    version_locations = %(here)s/alembic/versions_pro
-   sqlalchemy.url = mysql+pymysql://root:123456@127.0.0.1/kinit
+   sqlalchemy.url = mysql+pymysql://root:123456@127.0.0.1/vet-copilot
    ```
 
 5. 创建数据库
 
    ```
-   mysql> create database kinit;             # 创建数据库
-   mysql> use kinit;                         # 使用已创建的数据库 
+   mysql> create database vet-copilot;             # 创建数据库
+   mysql> use vet-copilot;                         # 使用已创建的数据库 
    mysql> set names utf8;                    # 设置编码
    ```
 
@@ -413,7 +413,7 @@ Redis (推荐使用最新稳定版)
 1. 安装依赖
 
 ```
-cd kinit-admin
+cd vet-copilot-admin
 
 pnpm install
 ```
@@ -472,7 +472,7 @@ pnpm run build:pro
 ### 访问项目
 
 - 访问地址：http://localhost:5000 (默认为此地址，如有修改请按照配置文件)
-- 账号：`15020221010` 密码：`kinit2022`
+- 账号：`15020221010` 密码：`vet-copilot2022`
 - 接口地址：http://localhost:9000/docs (默认为此地址，如有修改请按照配置文件)
 
 ## Docker Compose 生产环境部署
@@ -482,14 +482,14 @@ pnpm run build:pro
 1. 获取代码
 
    ```
-   git clone https://gitee.com/ktianc/kinit.git
+   git clone https://gitee.com/ktianc/vet-copilot.git
    ```
 
 2. 修改项目环境配置：
 
    1. 修改 API 端：
 
-      文件路径为：`kinit-api/application/settings.py`
+      文件路径为：`vet-copilot-api/application/settings.py`
 
       ```python
       # 安全警告: 不要在生产中打开调试运行!
@@ -498,7 +498,7 @@ pnpm run build:pro
 
    2. 修改定时任务端：
 
-      文件路径为：`kinit-task/application/settings.py`
+      文件路径为：`vet-copilot-task/application/settings.py`
 
       ```python
       # 安全警告: 不要在生产中打开调试运行!
@@ -511,13 +511,13 @@ pnpm run build:pro
 
    1. 修改 API 端配置文件：
 
-      文件路径为：`kinit-api/application/config/production.py`
+      文件路径为：`vet-copilot-api/application/config/production.py`
 
       ```python
       # Mysql 数据库配置项
       # 连接引擎官方文档：https://www.osgeo.cn/sqlalchemy/core/engines.html
       # 数据库连接配置说明：mysql+asyncmy://数据库用户名:数据库密码@数据库地址:数据库端口/数据库名称
-      SQLALCHEMY_DATABASE_URL = "mysql+asyncmy://root:123456@177.8.0.7:3306/kinit"
+      SQLALCHEMY_DATABASE_URL = "mysql+asyncmy://root:123456@177.8.0.7:3306/vet-copilot"
       
       # Redis 数据库配置
       # 格式："redis://:密码@地址:端口/数据库名称"
@@ -527,13 +527,13 @@ pnpm run build:pro
       # MongoDB 数据库配置
       # 格式：mongodb://用户名:密码@地址:端口/?authSource=数据库名称
       MONGO_DB_ENABLE = True
-      MONGO_DB_NAME = "kinit"
-      MONGO_DB_URL = f"mongodb://kinit:123456@177.8.0.6:27017/?authSource={MONGO_DB_NAME}"
+      MONGO_DB_NAME = "vet-copilot"
+      MONGO_DB_URL = f"mongodb://vet-copilot:123456@177.8.0.6:27017/?authSource={MONGO_DB_NAME}"
       ```
       
    2. 修改定时任务配置文件
 
-      文件路径为：`kinit-task/application/config/production.py`
+      文件路径为：`vet-copilot-task/application/config/production.py`
 
       ```python
       # Redis 数据库配置
@@ -546,15 +546,15 @@ pnpm run build:pro
       # 与接口是同一个数据库
       # 格式：mongodb://用户名:密码@地址:端口/?authSource=数据库名称
       MONGO_DB_ENABLE = True
-      MONGO_DB_NAME = "kinit"
-      MONGO_DB_URL = f"mongodb://kinit:123456@177.8.0.6:27017/?authSource={MONGO_DB_NAME}"
+      MONGO_DB_NAME = "vet-copilot"
+      MONGO_DB_URL = f"mongodb://vet-copilot:123456@177.8.0.6:27017/?authSource={MONGO_DB_NAME}"
       ```
       
    3. 将已有的数据库在 `docker-compose.yml` 文件中注释
 
 4. 配置阿里云 OSS 与 IP 解析接口地址（可选）
 
-   文件路径：`kinit-api/application/config/production.py`
+   文件路径：`vet-copilot-api/application/config/production.py`
 
    ```python
    # 阿里云对象存储OSS配置
@@ -582,7 +582,7 @@ pnpm run build:pro
 5. 前端项目打包：
 
    ```shell
-   cd kinit-admin
+   cd vet-copilot-admin
    
    # 安装依赖包
    pnpm install
@@ -598,7 +598,7 @@ pnpm run build:pro
 docker-compose up -d
 
 # 初始化数据
-docker-compose exec kinit-api python3 main.py init
+docker-compose exec vet-copilot-api python3 main.py init
 
 # 重启所有容器
 docker-compose restart
@@ -616,7 +616,7 @@ docker-compose ps -a
 ### 访问项目
 
 - 访问地址：http://localhost (默认为此地址，如有修改请按照配置文件)
-- 账号：`15020221010` 密码：`kinit2022`
+- 账号：`15020221010` 密码：`vet-copilot2022`
 - 接口地址：http://localhost:9000/docs (默认为此地址，如有修改请按照配置文件)
 
 ## 如何贡献
@@ -647,7 +647,7 @@ docker-compose ps -a
 
 ## PC端演示图
 
-![image-20221010214526082](https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1687232679892.jpg)
+![image-20221010214526082](https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1687232679892.jpg)
 
 ![image-20221010214526082](https://ktianc.oss-cn-beijing.aliyuncs.com/resource/images/1695373476/1695373476b028a6f9.jpg)
 
@@ -669,7 +669,7 @@ docker-compose ps -a
 
 ![image-20221010214526082](https://ktianc.oss-cn-beijing.aliyuncs.com/resource/images/1695373477/169537347735257fe5.jpg)
 
-![image-20221010214526082](https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1687233000595-10.jpg)
+![image-20221010214526082](https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1687233000595-10.jpg)
 
 ## 另一种布局演示图
 
@@ -707,13 +707,13 @@ docker-compose ps -a
 
 <table>
     <tr>
-        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077811740.jpg"/></td>
-        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077826257.jpg"/></td>
-		<td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077835024.jpg"/></td>
+        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077811740.jpg"/></td>
+        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077826257.jpg"/></td>
+		<td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077835024.jpg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077849753.jpg"/></td>
-        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077860987.jpg"/></td>
-		<td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/kinit/1670077870240.jpg"/></td>
+        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077849753.jpg"/></td>
+        <td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077860987.jpg"/></td>
+		<td><img src="https://k-typora.oss-cn-beijing.aliyuncs.com/vet-copilot/1670077870240.jpg"/></td>
     </tr>
 </table>

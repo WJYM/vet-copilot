@@ -1,7 +1,7 @@
 version: "3"
 services:
-  kinit-api:
-    container_name: kinit-api
+  vet-copilot-api:
+    container_name: vet-copilot-api
     restart: always
     ports:
       - "9000:9000"
@@ -9,17 +9,17 @@ services:
       - "9000"
     build:
       context: ./
-      dockerfile: ./docker_env/kinit-api/Dockerfile
+      dockerfile: ./docker_env/vet-copilot-api/Dockerfile
     environment:
       TZ: "Asia/Shanghai"
     volumes:
-      - ./kinit-api:/app
+      - ./vet-copilot-api:/app
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.2"
 
-  kinit-admin:
-    container_name: kinit-admin
+  vet-copilot-admin:
+    container_name: vet-copilot-admin
     restart: always
     ports:
       - "80:80"
@@ -29,28 +29,28 @@ services:
     environment:
       TZ: "Asia/Shanghai"
     volumes:
-      - ./docker_env/kinit-admin/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker_env/vet-copilot-admin/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./:/usr/share/nginx/html
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.3"
 
-  kinit-task:
-    container_name: kinit-task
+  vet-copilot-task:
+    container_name: vet-copilot-task
     restart: always
     build:
       context: ./
-      dockerfile: ./docker_env/kinit-task/Dockerfile
+      dockerfile: ./docker_env/vet-copilot-task/Dockerfile
     environment:
       TZ: "Asia/Shanghai"
     volumes:
-      - ./kinit-task:/app
+      - ./vet-copilot-task:/app
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.4"
 
-  kinit-redis:
-    container_name: kinit-redis
+  vet_copilot-redis:
+    container_name: vet_copilot-redis
     restart: always
     image: redis:latest
     ports:
@@ -62,12 +62,12 @@ services:
     environment:
       TZ: "Asia/Shanghai"
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.5"
     command: redis-server /etc/redis/redis.conf
 
-  kinit-mongo:
-    container_name: kinit-mongo
+  vet_copilot-mongo:
+    container_name: vet_copilot-mongo
     restart: always
     image: mongo:latest
     ports:
@@ -83,12 +83,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 123456 # root 用户密码
       TZ: "Asia/Shanghai" # 设置时区
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.6"
     command: mongod --auth --bind_ip 0.0.0.0 # 启用身份验证和允许从任何IP连接
 
-  kinit-mysql:
-    container_name: kinit-mysql
+  vet_copilot-mysql:
+    container_name: vet_copilot-mysql
     restart: always
     image: mysql:latest
     ports:
@@ -102,13 +102,13 @@ services:
     environment:
       TZ: "Asia/Shanghai"
       MYSQL_ROOT_PASSWORD: "123456"
-      MYSQL_DATABASE: "kinit"
+      MYSQL_DATABASE: "vet_copilot"
     networks:
-      kinit_network:
+      vet_copilot_network:
         ipv4_address: "177.8.0.7"
 
 networks:
-  kinit_network:
+  vet_copilot_network:
     driver: bridge
     ipam:
       driver: default

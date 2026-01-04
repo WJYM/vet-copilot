@@ -5,7 +5,7 @@
  Source Server Type    : MySQL
  Source Server Version : 80200
  Source Host           : 101.133.230.27:3306
- Source Schema         : kinit_first
+ Source Schema         : vet-copilot_first
 
  Target Server Type    : MySQL
  Target Server Version : 80200
@@ -60,7 +60,7 @@ CREATE TABLE `vadmin_auth_dept`  (
 -- ----------------------------
 -- Records of vadmin_auth_dept
 -- ----------------------------
-INSERT INTO `vadmin_auth_dept` VALUES ('kinit 开发团队', 'total_group', 0, 1, NULL, NULL, NULL, NULL, NULL, 1, '2023-12-18 22:51:07', '2023-12-21 17:57:42', NULL, 0);
+INSERT INTO `vadmin_auth_dept` VALUES ('vet-copilot 开发团队', 'total_group', 0, 1, NULL, NULL, NULL, NULL, NULL, 1, '2023-12-18 22:51:07', '2023-12-21 17:57:42', NULL, 0);
 
 -- ----------------------------
 -- Table structure for vadmin_auth_menu
@@ -232,7 +232,7 @@ CREATE TABLE `vadmin_auth_user`  (
 -- ----------------------------
 -- Records of vadmin_auth_user
 -- ----------------------------
-INSERT INTO `vadmin_auth_user` VALUES (NULL, '15020221010', NULL, 'kinit', 'admin', '$2b$12$Ce7eSUKIIl8DMKeDyNHyr.Dp4aesQCM70RePigRVEny1Eql31R0Cq', '1', 1, 1, '127.0.0.1', '2024-01-20 11:08:06', 1, NULL, 0, 1, '2022-08-11 20:17:04', '2024-01-20 11:08:03', NULL, 0);
+INSERT INTO `vadmin_auth_user` VALUES (NULL, '15020221010', NULL, 'vet-copilot', 'admin', '$2b$12$Ce7eSUKIIl8DMKeDyNHyr.Dp4aesQCM70RePigRVEny1Eql31R0Cq', '1', 1, 1, '127.0.0.1', '2024-01-20 11:08:06', 1, NULL, 0, 1, '2022-08-11 20:17:04', '2024-01-20 11:08:03', NULL, 0);
 
 -- ----------------------------
 -- Table structure for vadmin_auth_user_depts
@@ -300,7 +300,7 @@ CREATE TABLE `vadmin_help_issue`  (
 INSERT INTO `vadmin_help_issue` VALUES (3, 'KINIT-UNI 是使用若依-移动端进行的二次开发吗？', '<p>是的，是在若依-移动端的基础上进行的二次开发，在此感谢若依团队！二次开发中我们重新将接口请求改为 luch-request 组件，项目结构也有所改动，并且加入了 uView UI 组件，uni-simple-router 路由拦截。</p>', 0, 1, 1, 6, '2023-02-27 15:46:19', '2023-08-04 17:42:00', NULL, 0);
 INSERT INTO `vadmin_help_issue` VALUES (3, 'KINIT 开源吗？', '<p>开源</p>', 0, 1, 1, 7, '2023-02-27 15:46:34', '2023-08-04 17:41:54', NULL, 0);
 INSERT INTO `vadmin_help_issue` VALUES (3, 'KINIT 可以商用吗？', '<p>可以</p>', 0, 1, 1, 8, '2023-02-27 15:46:44', '2023-08-04 17:41:56', NULL, 0);
-INSERT INTO `vadmin_help_issue` VALUES (3, 'KINIT 源码地址多少？', '<p> <a href=\"https://gitee.com/ktianc/kinit\" target=\"_blank\">https://gitee.com/ktianc/kinit</a> </p>', 0, 1, 1, 9, '2023-02-27 15:46:55', '2023-08-04 17:41:58', NULL, 0);
+INSERT INTO `vadmin_help_issue` VALUES (3, 'KINIT 源码地址多少？', '<p> <a href=\"https://gitee.com/ktianc/vet-copilot\" target=\"_blank\">https://gitee.com/ktianc/vet-copilot</a> </p>', 0, 1, 1, 9, '2023-02-27 15:46:55', '2023-08-04 17:41:58', NULL, 0);
 INSERT INTO `vadmin_help_issue` VALUES (4, '如何退出登录？', '<p>请点击[我的] - [应用设置] - [退出登录]即可退出登录</p>', 0, 1, 1, 10, '2023-02-27 15:47:07', '2023-08-03 00:31:24', NULL, 0);
 INSERT INTO `vadmin_help_issue` VALUES (4, '如何修改用户头像？', '<p>请点击[我的] - [选择头像] - [点击提交]即可更换用户头像</p>', 0, 1, 1, 11, '2023-02-27 15:47:18', '2023-07-22 17:57:11', NULL, 0);
 INSERT INTO `vadmin_help_issue` VALUES (4, '如何修改登录密码？', '<p>请点击[我的] - [应用设置] - [修改密码]即可修改登录密码</p>', 0, 1, 1, 12, '2023-02-27 15:47:28', '2023-08-04 17:41:52', NULL, 0);
@@ -539,7 +539,7 @@ INSERT INTO `vadmin_system_settings` VALUES ('地图模式', 'map_view_mode', '3
 INSERT INTO `vadmin_system_settings` VALUES ('俯仰角度', 'map_pitch', '20', '地图初始俯仰角度，有效范围 0 度- 83 度', 0, 8, 23, '2022-11-17 19:36:02', '2022-11-17 19:36:02', NULL, 0);
 INSERT INTO `vadmin_system_settings` VALUES ('官方邮箱', 'wx_server_email', '2445667550@qq.com', NULL, 0, 9, 25, '2023-02-14 22:55:09', '2023-02-27 09:50:02', NULL, 0);
 INSERT INTO `vadmin_system_settings` VALUES ('服务热线', 'wx_server_phone', NULL, NULL, 0, 9, 26, '2023-02-14 22:55:57', '2023-02-27 09:50:02', NULL, 0);
-INSERT INTO `vadmin_system_settings` VALUES ('公司官网', 'wx_server_site', 'https://kinit.ktianc.top', NULL, 0, 9, 27, '2023-02-14 22:56:45', '2023-02-27 09:50:02', NULL, 0);
+INSERT INTO `vadmin_system_settings` VALUES ('公司官网', 'wx_server_site', 'https://vet-copilot.ktianc.top', NULL, 0, 9, 27, '2023-02-14 22:56:45', '2023-02-27 09:50:02', NULL, 0);
 INSERT INTO `vadmin_system_settings` VALUES ('AppID', 'wx_server_app_id', NULL, NULL, 0, 9, 28, '2023-02-26 22:01:19', '2023-02-27 09:50:02', NULL, 0);
 INSERT INTO `vadmin_system_settings` VALUES ('AppSecret', 'wx_server_app_secret', NULL, NULL, 0, 9, 29, '2023-02-26 22:01:46', '2023-02-27 09:50:02', NULL, 0);
 INSERT INTO `vadmin_system_settings` VALUES ('邮箱账号', 'email_access', NULL, NULL, 0, 10, 34, '2023-02-26 22:01:46', '2023-02-27 09:50:02', NULL, 0);
