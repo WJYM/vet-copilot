@@ -59,7 +59,9 @@ async def api_login_for_access_token(
         raise CustomException(status_code=error_code, code=error_code, msg="此手机号已被冻结")
     elif not user.is_staff:
         raise CustomException(status_code=error_code, code=error_code, msg="此手机号无权限")
-    access_token = LoginManage.create_token({"sub": user.telephone, "password": user.password})
+    # 使用新的 payload 构建方法
+    payload = LoginManage.build_token_payload(user, is_refresh=False)
+    access_token = LoginManage.create_token(payload)
     record = LoginForm(platform='2', method='0', telephone=data.username, password=data.password)
     resp = {"access_token": access_token, "token_type": "bearer"}
     await VadminLoginRecord.create_login_record(db, record, True, request, resp)
@@ -84,14 +86,14 @@ async def login_for_access_token(
         if not result.status:
             raise ValueError(result.msg)
 
-        access_token = LoginManage.create_token(
-            {"sub": result.user.telephone, "is_refresh": False, "password": result.user.password}
-        )
+        # 使用新的 payload 构建方法
+        access_payload = LoginManage.build_token_payload(result.user, is_refresh=False)
+        access_token = LoginManage.create_token(access_payload)
+
+        refresh_payload = LoginManage.build_token_payload(result.user, is_refresh=True)
         expires = timedelta(minutes=settings.REFRESH_TOKEN_EXPIRE_MINUTES)
-        refresh_token = LoginManage.create_token(
-            payload={"sub": result.user.telephone, "is_refresh": True, "password": result.user.password},
-            expires=expires
-        )
+        refresh_token = LoginManage.create_token(payload=refresh_payload, expires=expires)
+
         resp = {
             "access_token": access_token,
             "refresh_token": refresh_token,
@@ -133,13 +135,14 @@ async def wx_login_for_access_token(
     # 更新登录时间
     await UserDal(db).update_login_info(user, request.client.host)
 
-    # 登录成功创建 token
-    access_token = LoginManage.create_token({"sub": user.telephone, "is_refresh": False, "password": user.password})
+    # 登录成功创建 token，使用新的 payload 构建方法
+    access_payload = LoginManage.build_token_payload(user, is_refresh=False)
+    access_token = LoginManage.create_token(access_payload)
+
+    refresh_payload = LoginManage.build_token_payload(user, is_refresh=True)
     expires = timedelta(minutes=settings.REFRESH_TOKEN_EXPIRE_MINUTES)
-    refresh_token = LoginManage.create_token(
-        payload={"sub": user.telephone, "is_refresh": True, "password": user.password},
-        expires=expires
-    )
+    refresh_token = LoginManage.create_token(payload=refresh_payload, expires=expires)
+
     resp = {
         "access_token": access_token,
         "refresh_token": refresh_token,
@@ -171,12 +174,25 @@ async def token_refresh(refresh: str = Body(..., title="刷新Token")):
     except jwt.exceptions.ExpiredSignatureError:
         return ErrorResponse("登录已超时，请您重新登录", code=error_code, status=error_code)
 
-    access_token = LoginManage.create_token({"sub": telephone, "is_refresh": False, "password": password})
+    # 从 refresh_token 中提取完整的 payload 信息，保留 vet-platform 兼容字段
+    access_payload = {
+        "sub": telephone,
+        "user_id": payload.get("user_id"),
+        "tenant_id": payload.get("tenant_id"),
+        "hospital_id": payload.get("hospital_id"),
+        "role": payload.get("role"),
+        "permissions": payload.get("permissions", []),
+        "is_platform_admin": payload.get("is_platform_admin", False),
+        "is_refresh": False,
+        "password": password,
+    }
+    access_token = LoginManage.create_token(access_payload)
+
+    refresh_payload = access_payload.copy()
+    refresh_payload["is_refresh"] = True
     expires = timedelta(minutes=settings.REFRESH_TOKEN_EXPIRE_MINUTES)
-    refresh_token = LoginManage.create_token(
-        payload={"sub": telephone, "is_refresh": True, "password": password},
-        expires=expires
-    )
+    refresh_token = LoginManage.create_token(payload=refresh_payload, expires=expires)
+
     resp = {
         "access_token": access_token,
         "refresh_token": refresh_token,

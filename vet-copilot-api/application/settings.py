@@ -7,6 +7,10 @@
 
 import os
 from fastapi.security import OAuth2PasswordBearer
+from dotenv import load_dotenv
+
+# 加载 .env 文件
+load_dotenv()
 
 """
 系统版本
@@ -58,16 +62,21 @@ auto_error:(bool) 可选参数，默认为 True。当验证失败时，如果设
 如果设置为 True，那么 FastAPI 会自动报错，即无认证时 OpenAuth 会失效，所以不能使用 True。
 """
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/api/login", auto_error=False) if OAUTH_ENABLE else lambda: ""
-"""安全的随机密钥，该密钥将用于对 JWT 令牌进行签名"""
-SECRET_KEY = 'vgb0tnl9d58+6n-6h-ea&u^1#s0ccp!794=kbvqacjq75vzps$'
-"""用于设定 JWT 令牌签名算法"""
-ALGORITHM = "HS256"
+
+"""RSA 密钥配置，用于 RS256 非对称加密签名"""
+# 用于设定 JWT 令牌签名算法
+ALGORITHM = "RS256"
+# 公钥用于验证 Token（默认从项目根目录读取）
+SECRET_KEY = open(os.path.join(BASE_DIR, 'rsa_public.pem')).read()
+# 私钥用于签名 Token（默认从项目根目录读取）
+PRIVATE_KEY = open(os.path.join(BASE_DIR, 'rsa_private.pem')).read()
+
 """access_token 过期时间，一天"""
-ACCESS_TOKEN_EXPIRE_MINUTES = 1440
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "1440"))
 """refresh_token 过期时间，用于刷新token使用，两天"""
-REFRESH_TOKEN_EXPIRE_MINUTES = 1440 * 2
+REFRESH_TOKEN_EXPIRE_MINUTES = int(os.getenv("REFRESH_TOKEN_EXPIRE_MINUTES", "2880"))
 """access_token 缓存时间，用于刷新token使用，30分钟"""
-ACCESS_TOKEN_CACHE_MINUTES = 30
+ACCESS_TOKEN_CACHE_MINUTES = int(os.getenv("ACCESS_TOKEN_CACHE_MINUTES", "30"))
 
 """
 挂载临时文件目录，并添加路由访问，此路由不会在接口文档中显示

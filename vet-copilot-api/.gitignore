@@ -15,6 +15,9 @@ temp/*
 # dotenv
 .env
 
+# RSA keys (JWT signing)
+*.pem
+
 # virtualenv
 venv/
 ENV/
